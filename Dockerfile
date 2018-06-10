@@ -15,11 +15,9 @@ EXPOSE 3000
 # installs development files for node-gyp so that npm install won't have to
 # wait for them on the first native module installation.
 RUN export DEBIAN_FRONTEND=noninteractive && \
-    adduser -S \
-      -s /usr/sbin/nologin \
+    adduser -s /sbin/nologin -S stf-build \
       stf-build && \
-    adduser -S \
-      --s /usr/sbin/nologin \
+    adduser -s /sbin/nologin -S stf-build \
       stf && \
     sed -i'' 's@http://archive.ubuntu.com/ubuntu/@mirror://mirrors.ubuntu.com/mirrors.txt@' /etc/apt/sources.list && \
     apt-get update && \
