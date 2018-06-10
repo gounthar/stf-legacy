@@ -17,7 +17,7 @@ EXPOSE 3000
 RUN export DEBIAN_FRONTEND=noninteractive && \
     adduser -s /sbin/nologin -S stf-build \
       stf-build && \
-    adduser -s /sbin/nologin -S stf-build \
+    adduser -s /sbin/nologin -S stf \
       stf && \
     sed -i'' 's@http://archive.ubuntu.com/ubuntu/@mirror://mirrors.ubuntu.com/mirrors.txt@' /etc/apt/sources.list && \
     apt-get update && \
