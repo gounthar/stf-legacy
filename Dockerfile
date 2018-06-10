@@ -1,5 +1,4 @@
 FROM gounthar/alpine-linux-curl:latest
-RUN ["cross-build-start"]
 # Sneak the stf executable into $PATH.
 ENV PATH /app/bin:$PATH
 
@@ -15,21 +14,28 @@ EXPOSE 3000
 # installs development files for node-gyp so that npm install won't have to
 # wait for them on the first native module installation.
 RUN export DEBIAN_FRONTEND=noninteractive && \
-    adduser -s /sbin/nologin -S stf-build \
+    adduser \
+      -s /sbin/nologin -S stf \
       stf-build && \
-    adduser -s /sbin/nologin -S stf \
+    adduser \
+      -s /sbin/nologin -S stf-build \
       stf && \
-    sed -i'' 's@http://archive.ubuntu.com/ubuntu/@mirror://mirrors.ubuntu.com/mirrors.txt@' /etc/apt/sources.list && \
-    apt-get update && \
-    apt-get -y install wget python build-essential && \
+#    sed -i'' 's@http://archive.ubuntu.com/ubuntu/@mirror://mirrors.ubuntu.com/mirrors.txt@' /etc/apt/sources.list && \
+    apk update && \
+    apk add --virtual build-dependencies \
+        build-base \
+        gcc \
+        wget \
+    git && \
+    apk add wget python bash nodejs && \
     cd /tmp && \
     wget --progress=dot:mega \
-      https://nodejs.org/dist/v6.11.2/node-v6.11.2-linux-x64.tar.xz && \
+      https://nodejs.org/dist/v6.11.2/node-v6.11.2-linux-arm64.tar.xz && \
     tar -xJf node-v*.tar.xz --strip-components 1 -C /usr/local && \
     rm node-v*.tar.xz && \
     su stf-build -s /bin/bash -c '/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js install' && \
-    apt-get -y install libzmq3-dev libprotobuf-dev git graphicsmagick yasm && \
-    apt-get clean && \
+    apk add libzmq3-dev libprotobuf-dev git graphicsmagick yasm && \
+    apk clean && \
     rm -rf /var/cache/apt/* /var/lib/apt/lists/*
 
 # Copy app source.
