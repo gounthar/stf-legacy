@@ -1,5 +1,5 @@
-FROM ubuntu:16.04
-
+FROM gounthar/alpine-linux-curl:latest
+RUN ["cross-build-start"]
 # Sneak the stf executable into $PATH.
 ENV PATH /app/bin:$PATH
 
@@ -66,3 +66,4 @@ USER stf
 
 # Show help by default.
 CMD stf --help
+RUN ["cross-build-end"]
