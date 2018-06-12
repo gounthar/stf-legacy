@@ -1,5 +1,5 @@
-FROM gounthar/alpine-linux-curl:latest
-RUN ["cross-build-start"]
+FROM ubuntu:16.04
+
 # Sneak the stf executable into $PATH.
 ENV PATH /app/bin:$PATH
 
@@ -15,9 +15,13 @@ EXPOSE 3000
 # installs development files for node-gyp so that npm install won't have to
 # wait for them on the first native module installation.
 RUN export DEBIAN_FRONTEND=noninteractive && \
-    adduser -s /sbin/nologin -S stf-build \
+    useradd --system \
+      --create-home \
+      --shell /usr/sbin/nologin \
       stf-build && \
-    adduser -s /sbin/nologin -S stf \
+    useradd --system \
+      --create-home \
+      --shell /usr/sbin/nologin \
       stf && \
     sed -i'' 's@http://archive.ubuntu.com/ubuntu/@mirror://mirrors.ubuntu.com/mirrors.txt@' /etc/apt/sources.list && \
     apt-get update && \
@@ -62,4 +66,3 @@ USER stf
 
 # Show help by default.
 CMD stf --help
-RUN ["cross-build-end"]
