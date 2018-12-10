@@ -5,6 +5,11 @@ sudo: required
 runtime:
   nodePool: shippable_shared_aarch64
   
+integrations:
+  hub:
+    - integrationName: docker_hub
+    - type: dockerRegistryLogin    
+  
 build:
  ci:
  # - ARCH=armhf docker/armv7l/mkimage-alpine.sh
