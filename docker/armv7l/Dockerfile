@@ -1,6 +1,6 @@
 # Get the base image by running the included `mkimage-alpine.sh` script, or
 # get a fresh copy from github.com/docker/docker/contrib/.
-FROM arm32v7/alpine:3.5
+FROM arm32v6/alpine:3.5
 
 # Copy app source.
 COPY . /tmp/build/
