@@ -7,8 +7,8 @@ runtime:
   
 integrations:
   hub:
-    - integrationName: docker_hub
-    type: dockerRegistryLogin    
+    - integrationName: hub_docker
+      type: dockerRegistryLogin    
   
 build:
  ci:
