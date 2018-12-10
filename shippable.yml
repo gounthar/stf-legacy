@@ -7,5 +7,5 @@ runtime:
   
 build:
  ci:
-  - ARCH=armhf docker/armv7l/mkimage-alpine.sh
+ # - ARCH=armhf docker/armv7l/mkimage-alpine.sh
   - docker build -f docker/armv7l/Dockerfile -t openstf/stf-armv7l:latest .
