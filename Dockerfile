@@ -23,6 +23,7 @@ RUN apk add --no-cache --virtual build-dependencies \
         gcc \
         wget \
         git \
+        make \
         protobuf-dev \
         zeromq-dev \
         wget \
@@ -33,8 +34,7 @@ RUN apk add --no-cache --virtual build-dependencies \
 RUN ln -s /opt/node/bin/node-waf /usr/bin/node-waf && node -v && npm -v
 
 RUN  su stf-build -s /bin/bash -c '/usr/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js install' && \
-    apk add --no-cache graphicsmagick yasm && \
-    apk del build-dependencies
+    apk add --no-cache graphicsmagick yasm 
 
 # Copy app source.
 COPY . /tmp/build/
@@ -59,7 +59,8 @@ RUN set -x && \
     npm cache clean && \
     rm -rf ~/.node-gyp && \
     cd /app && \
-    rm -rf /tmp/*
+    rm -rf /tmp/* && \
+    apk del build-dependencies
 
 # Switch to the app user.
 USER stf
