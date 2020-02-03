@@ -26,7 +26,9 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
         build-base \
         gcc \
         wget \
-    git && \
+        git \
+        libprotobuf-dev \
+        libzmq3-dev && \
     apk add wget python bash nodejs npm && \
     cd /tmp && touch /bin/node-install
 #RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py && which pip 
