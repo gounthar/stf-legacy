@@ -29,7 +29,7 @@ RUN apk add --virtual build-dependencies \
         wget \
         git \
         protobuf-dev \
-        libzmq3-dev \
+        zeromq-dev \
         wget \
         python \
         bash \
