@@ -33,11 +33,11 @@ RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py
 ENV NODE_VERSION "v13.7.0"
 RUN mkdir mkdir -p /opt && cd /opt/ && \
   curl http://nodejs.org/dist/$NODE_VERSION/node-$NODE_VERSION-linux-armv7l.tar.gz -o node-$NODE_VERSION-linux-armv7l.tar.gz && \
-  tar xvzf node-$NODE_VERSION-linux-armv7l.tar.gz && mv node-$NODE_VERSION-linux-armv7l node
+  tar xzf node-$NODE_VERSION-linux-armv7l.tar.gz && mv node-$NODE_VERSION-linux-armv7l node
 ENV PATH "$PATH:/opt/node/bin"
 RUN echo "export PATH=$PATH:/opt/node/bin" >> ~/.bash_profile
-RUN ln -s /opt/node/bin/node /usr/bin/node && ln -s /opt/node/lib/node /usr/lib/node && ln -s /opt/node/bin/npm /usr/bin/npm && \
-  ln -s /opt/node/bin/node-waf /usr/bin/node-waf && node -v && npm -v
+#RUN ln -s /opt/node/bin/node /usr/bin/node && ln -s /opt/node/lib/node /usr/lib/node && 
+RUN ln -s /opt/node/bin/npm /usr/bin/npm && ln -s /opt/node/bin/node-waf /usr/bin/node-waf && node -v && npm -v
   
 RUN  su stf-build -s /bin/bash -c '/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js install' && \
     apk add libzmq3-dev libprotobuf-dev git graphicsmagick yasm && \
