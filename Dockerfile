@@ -28,7 +28,7 @@ RUN apk add --virtual build-dependencies \
         gcc \
         wget \
         git \
-        libprotobuf-dev \
+        protobuf-dev \
         libzmq3-dev \
         wget \
         python \
