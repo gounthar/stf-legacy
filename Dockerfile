@@ -31,7 +31,8 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     cd /tmp && touch /bin/node-install
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py && which pip 
 ENV NODE_VERSION "v13.7.0"
-RUN mkdir mkdir -p /opt && cd /opt/ && curl http://nodejs.org/dist/$NODE_VERSION/node-$NODE_VERSION-linux-armv7l.tar.gz && \
+RUN mkdir mkdir -p /opt && cd /opt/ && \
+  curl http://nodejs.org/dist/$NODE_VERSION/node-$NODE_VERSION-linux-armv7l.tar.gz -o node-$NODE_VERSION-linux-armv7l.tar.gz && \
   tar xvzf node-$NODE_VERSION-linux-armv7l.tar.gz && mv node-$NODE_VERSION-linux-armv7l node
 ENV PATH "$PATH:/opt/node/bin"
 RUN echo "export PATH=$PATH:/opt/node/bin" >> ~/.bash_profile
