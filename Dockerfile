@@ -13,13 +13,8 @@ EXPOSE 3000
 # by reducing layers as much as possible. Note that one of the final steps
 # installs development files for node-gyp so that npm install won't have to
 # wait for them on the first native module installation.
-RUN export DEBIAN_FRONTEND=noninteractive && \
-    adduser \
-      -s /sbin/nologin -S stf \
-      stf-build && \
-    adduser \
-      -s /sbin/nologin -S stf-build \
-      stf && \
+RUN adduser --shell /sbin/nologin --system stf-build && sudo addgroup stf-build && sudo adduser stf-build stf-build && \
+    adduser --shell /sbin/nologin --system stf && sudo addgroup stf && sudo adduser stf stf && \
 #    sed -i'' 's@http://archive.ubuntu.com/ubuntu/@mirror://mirrors.ubuntu.com/mirrors.txt@' /etc/apt/sources.list && \
     apk update && apk upgrade 
     
