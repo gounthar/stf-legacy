@@ -22,6 +22,7 @@ RUN apk add --no-cache --virtual build-dependencies \
         build-base \
         gcc \
         wget \
+        fontconfig \
         git \
         make \
         protobuf-dev \
