@@ -25,6 +25,7 @@ RUN apk add --no-cache --virtual build-dependencies \
         git \
         make \
         protobuf-dev \
+        strace \
         zeromq-dev \
         wget \
         bash && apk add --no-cache nodejs \
