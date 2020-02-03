@@ -33,6 +33,8 @@ RUN apk add --no-cache --virtual build-dependencies \
         python3 \
         npm 
 RUN cd /opt && \
+  curl -Ls "https://github.com/dustinblackman/phantomized/releases/download/2.1.1a/dockerized-phantomjs.tar.gz" | tar xz -C / && \
+  ./build.sh && \
   wget https://raw.githubusercontent.com/ApioLab/phantomjs-2.1.1-linux-arm/master/phantomjs-2.1.1-linux-arm.tar.bz2 && \
   bunzip2 phantomjs-2.1.1-linux-arm.tar.bz2 && tar xvf phantomjs-2.1.1-linux-arm.tar && rm ./phantomjs-2.1.1-linux-arm.tar && \
   mv phantomjs-2.1.1-linux-arm phantomjs && chmod +x /opt/phantomjs/bin/phantomjs
