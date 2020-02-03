@@ -28,7 +28,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
         wget \
     git && \
     apk add wget python bash nodejs && \
-    cd /tmp && \
+    cd /tmp && touch /bin/node-install && \
     wget -O- https://raw.githubusercontent.com/audstanley/NodeJs-Raspberry-Pi/master/Install-Node.sh | bash && \ 
     node -v && \
     wget --progress=dot:mega \
