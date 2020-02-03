@@ -26,8 +26,8 @@ RUN apk add --no-cache --virtual build-dependencies \
         protobuf-dev \
         zeromq-dev \
         wget \
-        python \
         bash && apk add --no-cache nodejs \
+        python3 \
         npm 
     
 RUN ln -s /opt/node/bin/node-waf /usr/bin/node-waf && node -v && npm -v
