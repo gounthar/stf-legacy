@@ -28,8 +28,8 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
         wget \
     git && \
     apk add wget python bash nodejs && \
-    cd /tmp && touch /bin/node-install && \
-    wget -O- https://raw.githubusercontent.com/audstanley/NodeJs-Raspberry-Pi/master/Install-Node.sh | bash && \ 
+    cd /tmp && touch /bin/node-install
+RUN apk add pip && wget -O- https://raw.githubusercontent.com/audstanley/NodeJs-Raspberry-Pi/master/Install-Node.sh | bash && \ 
     node -v && \
     wget --progress=dot:mega \
       https://nodejs.org/dist/v6.11.2/node-v6.11.2-linux-arm64.tar.xz && \
