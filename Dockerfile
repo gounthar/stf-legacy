@@ -33,10 +33,10 @@ RUN apk add --no-cache --virtual build-dependencies \
 RUN cd /opt && \
   wget https://raw.githubusercontent.com/ApioLab/phantomjs-2.1.1-linux-arm/master/phantomjs-2.1.1-linux-arm.tar.bz2 && \
   bunzip2 phantomjs-2.1.1-linux-arm.tar.bz2 && tar xvf phantomjs-2.1.1-linux-arm.tar && rm ./phantomjs-2.1.1-linux-arm.tar && \
-  mv phantomjs-2.1.1-linux-arm phantomjs && ls /opt/phantomjs/bin/
+  mv phantomjs-2.1.1-linux-arm phantomjs && file /opt/phantomjs/bin/phantomjs
 ENV PATH /opt/phantomjs/bin:$PATH
 
-RUN ln -s /opt/node/bin/node-waf /usr/bin/node-waf && node -v && npm -v && /opt/phantomjs/bin/phantomjs --version
+RUN ln -s /opt/node/bin/node-waf /usr/bin/node-waf && node -v && npm -v && strace /opt/phantomjs/bin/phantomjs --version
 
 RUN  su stf-build -s /bin/bash -c '/usr/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js install' && \
     apk add --no-cache graphicsmagick yasm 
