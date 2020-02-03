@@ -21,8 +21,9 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
       -s /sbin/nologin -S stf-build \
       stf && \
 #    sed -i'' 's@http://archive.ubuntu.com/ubuntu/@mirror://mirrors.ubuntu.com/mirrors.txt@' /etc/apt/sources.list && \
-    apk update && apk upgrade && \
-    apk add --virtual build-dependencies \
+    apk update && apk upgrade 
+    
+RUN apk add --virtual build-dependencies \
         build-base \
         gcc \
         wget \
