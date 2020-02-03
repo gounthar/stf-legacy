@@ -37,7 +37,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 #ENV PATH "$PATH:/opt/node/bin"
 #RUN echo "export PATH=$PATH:/opt/node/bin" >> ~/.bash_profile
 #RUN ln -s /opt/node/bin/node /usr/bin/node && ln -s /opt/node/lib/node /usr/lib/node && 
-RUN ln -s /opt/node/bin/npm /usr/bin/npm && ln -s /opt/node/bin/node-waf /usr/bin/node-waf && node -v && npm -v
+RUN ln -s /opt/node/bin/node-waf /usr/bin/node-waf && node -v && npm -v
 RUN find / -name "node-gyp.js"  
 RUN  su stf-build -s /bin/bash -c '/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js install' && \
     apk add libzmq3-dev libprotobuf-dev git graphicsmagick yasm && \
