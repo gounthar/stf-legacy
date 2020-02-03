@@ -27,7 +27,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
         gcc \
         wget \
     git && \
-    apk add wget python bash nodejs && \
+    apk add wget python bash nodejs npm && \
     cd /tmp && touch /bin/node-install
 #RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py && which pip 
 #ENV NODE_VERSION "v13.7.0"
