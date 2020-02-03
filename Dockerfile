@@ -32,24 +32,14 @@ RUN apk add --no-cache --virtual build-dependencies \
         zeromq-dev \
         wget \
         python \
-        bash \
-        nodejs \
+        bash && apk add --no-cache nodejs \
         npm 
     
-#RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py && which pip 
-#ENV NODE_VERSION "v13.7.0"
-#RUN mkdir mkdir -p /opt && cd /opt/ && \
-#  curl http://nodejs.org/dist/$NODE_VERSION/node-$NODE_VERSION-linux-armv7l.tar.gz -o node-$NODE_VERSION-linux-armv7l.tar.gz && \
-#  tar xzf node-$NODE_VERSION-linux-armv7l.tar.gz && mv node-$NODE_VERSION-linux-armv7l node
-#ENV PATH "$PATH:/opt/node/bin"
-#RUN echo "export PATH=$PATH:/opt/node/bin" >> ~/.bash_profile
-#RUN ln -s /opt/node/bin/node /usr/bin/node && ln -s /opt/node/lib/node /usr/lib/node && 
 RUN ln -s /opt/node/bin/node-waf /usr/bin/node-waf && node -v && npm -v
 
 RUN  su stf-build -s /bin/bash -c '/usr/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js install' && \
     apk add --no-cache graphicsmagick yasm && \
-    apk cache clean && apk del build-dependencies && \
-    rm -rf /var/cache/apt/* /var/lib/apt/lists/*
+    apk del build-dependencies
 
 # Copy app source.
 COPY . /tmp/build/
