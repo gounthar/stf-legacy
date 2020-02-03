@@ -23,7 +23,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 #    sed -i'' 's@http://archive.ubuntu.com/ubuntu/@mirror://mirrors.ubuntu.com/mirrors.txt@' /etc/apt/sources.list && \
     apk update && apk upgrade 
     
-RUN apk add --virtual build-dependencies \
+RUN apk add --no-cache --virtual build-dependencies \
         build-base \
         gcc \
         wget \
@@ -47,8 +47,8 @@ RUN apk add --virtual build-dependencies \
 RUN ln -s /opt/node/bin/node-waf /usr/bin/node-waf && node -v && npm -v
 
 RUN  su stf-build -s /bin/bash -c '/usr/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js install' && \
-    apk add graphicsmagick yasm && \
-    apk clean && \
+    apk add --no-cache graphicsmagick yasm && \
+    apk cache clean && apk del build-dependencies && \
     rm -rf /var/cache/apt/* /var/lib/apt/lists/*
 
 # Copy app source.
