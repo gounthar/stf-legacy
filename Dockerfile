@@ -21,16 +21,20 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
       -s /sbin/nologin -S stf-build \
       stf && \
 #    sed -i'' 's@http://archive.ubuntu.com/ubuntu/@mirror://mirrors.ubuntu.com/mirrors.txt@' /etc/apt/sources.list && \
-    apk update && \
+    apk update && apk upgrade && \
     apk add --virtual build-dependencies \
         build-base \
         gcc \
         wget \
         git \
         libprotobuf-dev \
-        libzmq3-dev && \
-    apk add wget python bash nodejs npm && \
-    cd /tmp && touch /bin/node-install
+        libzmq3-dev \
+        wget \
+        python \
+        bash \
+        nodejs \
+        npm 
+    
 #RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py && which pip 
 #ENV NODE_VERSION "v13.7.0"
 #RUN mkdir mkdir -p /opt && cd /opt/ && \
