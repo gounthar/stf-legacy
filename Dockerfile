@@ -45,9 +45,9 @@ RUN apk add --virtual build-dependencies \
 #RUN echo "export PATH=$PATH:/opt/node/bin" >> ~/.bash_profile
 #RUN ln -s /opt/node/bin/node /usr/bin/node && ln -s /opt/node/lib/node /usr/lib/node && 
 RUN ln -s /opt/node/bin/node-waf /usr/bin/node-waf && node -v && npm -v
-RUN find / -name "node-gyp.js"  
+
 RUN  su stf-build -s /bin/bash -c '/usr/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js install' && \
-    apk add libzmq3-dev libprotobuf-dev git graphicsmagick yasm && \
+    apk add graphicsmagick yasm && \
     apk clean && \
     rm -rf /var/cache/apt/* /var/lib/apt/lists/*
 
