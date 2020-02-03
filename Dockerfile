@@ -36,7 +36,7 @@ RUN cd /opt && \
   mv phantomjs-2.1.1-linux-arm phantomjs
 ENV PATH /opt/phantomjs/bin:$PATH
 
-RUN ln -s /opt/node/bin/node-waf /usr/bin/node-waf && node -v && npm -v
+RUN ln -s /opt/node/bin/node-waf /usr/bin/node-waf && node -v && npm -v && phantomjs --version
 
 RUN  su stf-build -s /bin/bash -c '/usr/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js install' && \
     apk add --no-cache graphicsmagick yasm 
