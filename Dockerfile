@@ -29,8 +29,8 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     git && \
     apk add wget python bash nodejs && \
     cd /tmp && touch /bin/node-install
-RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py && \
-    wget -O- https://raw.githubusercontent.com/audstanley/NodeJs-Raspberry-Pi/master/Install-Node.sh | bash && \ 
+RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py && which pip 
+RUN wget -O- https://raw.githubusercontent.com/audstanley/NodeJs-Raspberry-Pi/master/Install-Node.sh | bash && \ 
     node -v && \
     wget --progress=dot:mega \
       https://nodejs.org/dist/v6.11.2/node-v6.11.2-linux-arm64.tar.xz && \
