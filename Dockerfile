@@ -27,7 +27,7 @@ RUN apk add --no-cache --virtual build-dependencies \
         protobuf-dev \
         zeromq-dev \
         wget \
-        bash && apk add --no-cache nodejs \
+        bash && apk add --no-cache nodejs phantomjs \
         python3 \
         npm 
     
