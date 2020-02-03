@@ -30,13 +30,15 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     apk add wget python bash nodejs && \
     cd /tmp && touch /bin/node-install
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py && which pip 
-RUN wget -O- https://raw.githubusercontent.com/audstanley/NodeJs-Raspberry-Pi/master/Install-Node.sh | bash && \ 
-    node -v && \
-    wget --progress=dot:mega \
-      https://nodejs.org/dist/v6.11.2/node-v6.11.2-linux-arm64.tar.xz && \
-#    tar -xJf node-v*.tar.xz --strip-components 1 -C /usr/local && \
-#    rm node-v*.tar.xz && \
-    su stf-build -s /bin/bash -c '/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js install' && \
+ENV NODE_VERSION "v13.7.0"
+RUN mkdir mkdir -p /opt && cd /opt/ && curl http://nodejs.org/dist/$NODE_VERSION/node-$NODE_VERSION-linux-armv7l.tar.gz && \
+  tar xvzf node-$NODE_VERSION-linux-armv7l.tar.gz && mv node-$NODE_VERSION-linux-armv7l node
+ENV PATH "$PATH:/opt/node/bin"
+RUN echo "export PATH=$PATH:/opt/node/bin" >> ~/.bash_profile
+RUN ln -s /opt/node/bin/node /usr/bin/node && ln -s /opt/node/lib/node /usr/lib/node && ln -s /opt/node/bin/npm /usr/bin/npm && \
+  ln -s /opt/node/bin/node-waf /usr/bin/node-waf && node -v && npm -v
+  
+RUN  su stf-build -s /bin/bash -c '/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js install' && \
     apk add libzmq3-dev libprotobuf-dev git graphicsmagick yasm && \
     apk clean && \
     rm -rf /var/cache/apt/* /var/lib/apt/lists/*
