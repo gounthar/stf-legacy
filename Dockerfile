@@ -31,10 +31,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
       https://nodejs.org/dist/v8.9.3/node-v8.9.3-linux-arm64.tar.xz && \
     tar -xJf node-v*.tar.xz --strip-components 1 -C /usr/local && \
     rm node-v*.tar.xz && find . -name node && node --version
-RUN git clone https://github.com/mitghi/phantomjs-2.1.1-arm64 144 && cd phantomjs-2.1.1-arm64 && \
-    apt-get update && dpkg -i phantomjs-2.1.1-aarch64.deb && apt-get install -f && \
-    phantomjs version
-    
+   
 RUN su stf-build -s /bin/bash -c '/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js install' && \
     apt-get -y install libzmq3-dev libprotobuf-dev git graphicsmagick yasm && \
     apt-get clean && \
