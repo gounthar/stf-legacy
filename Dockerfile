@@ -30,7 +30,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     wget --progress=dot:mega \
       https://nodejs.org/dist/v8.9.3/node-v8.9.3-linux-arm64.tar.xz && \
     tar -xJf node-v*.tar.xz --strip-components 1 -C /usr/local && \
-    rm node-v*.tar.xz && find . -name node && node --version
+    rm node-v*.tar.xz && find . -name node && node --version && /usr/bin/phantomjs --version
    
 RUN su stf-build -s /bin/bash -c '/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js install' && \
     apt-get -y install libzmq3-dev libprotobuf-dev git graphicsmagick yasm && \
