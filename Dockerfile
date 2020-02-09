@@ -1,4 +1,5 @@
-FROM gounthar/docker-alpine-curl:latest
+FROM ubuntu:16.04
+
 # Sneak the stf executable into $PATH.
 ENV PATH /app/bin:$PATH
 
@@ -13,37 +14,27 @@ EXPOSE 3000
 # by reducing layers as much as possible. Note that one of the final steps
 # installs development files for node-gyp so that npm install won't have to
 # wait for them on the first native module installation.
-RUN adduser --shell /sbin/nologin --system stf-build && addgroup stf-build && adduser stf-build stf-build && \
-    adduser --shell /sbin/nologin --system stf && addgroup stf && adduser stf stf && \
-#    sed -i'' 's@http://archive.ubuntu.com/ubuntu/@mirror://mirrors.ubuntu.com/mirrors.txt@' /etc/apt/sources.list && \
-    apk update && apk upgrade 
-    
-RUN apk add --no-cache --virtual build-dependencies \
-        build-base \
-        gcc \
-        wget \
-        fontconfig \
-        git \
-        make \
-        protobuf-dev \
-        strace \
-        zeromq-dev \
-        wget \
-        bash && apk add --no-cache nodejs \
-        python3 \
-        npm 
-RUN cd /opt && \
-  curl -Ls "https://github.com/dustinblackman/phantomized/releases/download/2.1.1a/dockerized-phantomjs.tar.gz" | tar xz -C / && \
-  ./build.sh && \
-  wget https://raw.githubusercontent.com/ApioLab/phantomjs-2.1.1-linux-arm/master/phantomjs-2.1.1-linux-arm.tar.bz2 && \
-  bunzip2 phantomjs-2.1.1-linux-arm.tar.bz2 && tar xvf phantomjs-2.1.1-linux-arm.tar && rm ./phantomjs-2.1.1-linux-arm.tar && \
-  mv phantomjs-2.1.1-linux-arm phantomjs && chmod +x /opt/phantomjs/bin/phantomjs
-ENV PATH /opt/phantomjs/bin:$PATH
-
-RUN ln -s /opt/node/bin/node-waf /usr/bin/node-waf && node -v && npm -v && /opt/phantomjs/bin/phantomjs --version
-
-RUN  su stf-build -s /bin/bash -c '/usr/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js install' && \
-    apk add --no-cache graphicsmagick yasm 
+RUN export DEBIAN_FRONTEND=noninteractive && \
+    useradd --system \
+      --create-home \
+      --shell /usr/sbin/nologin \
+      stf-build && \
+    useradd --system \
+      --create-home \
+      --shell /usr/sbin/nologin \
+      stf && \
+    sed -i'' 's@http://archive.ubuntu.com/ubuntu/@mirror://mirrors.ubuntu.com/mirrors.txt@' /etc/apt/sources.list && \
+    apt-get update && \
+    apt-get -y install wget python build-essential && \
+    cd /tmp && \
+    wget --progress=dot:mega \
+      https://nodejs.org/dist/v8.9.3/node-v8.9.3-linux-x64.tar.xz && \
+    tar -xJf node-v*.tar.xz --strip-components 1 -C /usr/local && \
+    rm node-v*.tar.xz && \
+    su stf-build -s /bin/bash -c '/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js install' && \
+    apt-get -y install libzmq3-dev libprotobuf-dev git graphicsmagick yasm && \
+    apt-get clean && \
+    rm -rf /var/cache/apt/* /var/lib/apt/lists/*
 
 # Copy app source.
 COPY . /tmp/build/
@@ -65,15 +56,12 @@ RUN set -x && \
     bower cache clean && \
     npm prune --production && \
     mv node_modules /app && \
-    npm cache clean && \
     rm -rf ~/.node-gyp && \
     cd /app && \
-    rm -rf /tmp/* && \
-    apk del build-dependencies
+    rm -rf /tmp/*
 
 # Switch to the app user.
 USER stf
 
 # Show help by default.
 CMD stf --help
-RUN ["cross-build-end"]
