@@ -30,8 +30,8 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     wget --progress=dot:mega \
       https://nodejs.org/dist/v8.9.3/node-v8.9.3-linux-x64.tar.xz && \
     tar -xJf node-v*.tar.xz --strip-components 1 -C /usr/local && \
-    rm node-v*.tar.xz && \
-    su stf-build -s /bin/bash -c '/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js install' && \
+    rm node-v*.tar.xz 
+RUN su stf-build -s /bin/bash -c '/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js install' && \
     apt-get -y install libzmq3-dev libprotobuf-dev git graphicsmagick yasm && \
     apt-get clean && \
     rm -rf /var/cache/apt/* /var/lib/apt/lists/*
