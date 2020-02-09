@@ -25,7 +25,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
       stf && \
     sed -i'' 's@http://archive.ubuntu.com/ubuntu/@mirror://mirrors.ubuntu.com/mirrors.txt@' /etc/apt/sources.list && \
     apt-get update && \
-    apt-get -y install wget python build-essential && \
+    apt-get -y install wget python build-essential git && \
     cd /tmp && \
     wget --progress=dot:mega \
       https://nodejs.org/dist/v8.9.3/node-v8.9.3-linux-arm64.tar.xz && \
