@@ -14,6 +14,8 @@ EXPOSE 3000
 # by reducing layers as much as possible. Note that one of the final steps
 # installs development files for node-gyp so that npm install won't have to
 # wait for them on the first native module installation.
+ENV QT_QPA_PLATFORM=offscreen
+
 RUN export DEBIAN_FRONTEND=noninteractive && \
     useradd --system \
       --create-home \
