@@ -30,7 +30,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get -y install wget python build-essential git phantomjs && \
     cd /tmp && \
     wget --progress=dot:mega \
-      https://nodejs.org/dist/v8.9.3/node-v8.9.3-linux-arm64.tar.xz && \
+      https://nodejs.org/dist/v8.9.3/node-v8.9.3-linux-armv7l.tar.gz && \
     tar -xJf node-v*.tar.xz --strip-components 1 -C /usr/local && \
     rm node-v*.tar.xz && find . -name node && node --version && /usr/bin/phantomjs --version
    
