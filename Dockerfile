@@ -27,7 +27,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
       stf && \
     sed -i'' 's@http://archive.ubuntu.com/ubuntu/@mirror://mirrors.ubuntu.com/mirrors.txt@' /etc/apt/sources.list && \
     apt-get update && \
-    apt-get -y install wget python build-essential git phantomjs && \
+    apt-get -y install wget python build-essential && \
     cd /tmp && \
     wget --progress=dot:mega \
       https://nodejs.org/dist/v8.9.3/node-v8.9.3-linux-arm64.tar.xz && \
@@ -35,6 +35,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     rm node-v*.tar.xz && \
     su stf-build -s /bin/bash -c '/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js install' && \
     apt-get -y install libzmq3-dev libprotobuf-dev git graphicsmagick openjdk-8-jdk yasm && \
+    apt-get -y install cmake bzip2 phantomjs && \
     apt-get clean && \
     rm -rf /var/cache/apt/* /var/lib/apt/lists/* && \
     mkdir /tmp/bundletool && \
