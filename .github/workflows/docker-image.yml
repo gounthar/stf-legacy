@@ -2,9 +2,9 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ master | aarch64 ]
+    branches: [ aarch64 ]
   pull_request:
-    branches: [ master | aarch64]
+    branches: [ aarch64]
 
 jobs:
 
