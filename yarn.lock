@@ -2,13 +2,13 @@
 # yarn lockfile v1
 
 
-"@devicefarmer/adbkit-apkreader@^3.2.1":
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/@devicefarmer/adbkit-apkreader/-/adbkit-apkreader-3.2.1.tgz#770285d8bec5166bfcd79e3be74890710d273fce"
-  integrity sha512-mn21lRAH2jjrkOELVQmspANX48Xf5yOqIVL7BjBewSLtwHrco+mx9qk4HaAnJFjnnE6Rdm30GtzsTJNWVgvPEA==
+"@devicefarmer/adbkit-apkreader@^3.2.2":
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/@devicefarmer/adbkit-apkreader/-/adbkit-apkreader-3.2.3.tgz#9dcf1a90f071e5b48bf403e0615ec809d78fdcb7"
+  integrity sha512-3RbNL9PUKIvxdHcAoMNO/3vkAgJl4aLHP3OagzFTDWM70sjOkMQmzwUgxBKwdjorU5NmmToaYDuiSox6PC/dhw==
   dependencies:
     bluebird "^3.4.7"
-    debug "~4.1.1"
+    debug "~4.3.1"
     yauzl "^2.7.0"
 
 "@devicefarmer/adbkit-logcat@^1.1.0":
@@ -23,23 +23,23 @@
   dependencies:
     async "~0.2.9"
 
-"@devicefarmer/adbkit@^2.11.2":
-  version "2.11.2"
-  resolved "https://registry.yarnpkg.com/@devicefarmer/adbkit/-/adbkit-2.11.2.tgz#95c67f5489a8f5102a678121062a5b9a7da62469"
-  integrity sha512-4Sd9yRbtXnN6Y+J2JCf3WONfhWm0VUFyg0cCV3oQMgxTnSPoND9jaIgIc3ly83FCu2CqCx5h2B8p0vhe8NaVOQ==
+"@devicefarmer/adbkit@^2.11.3":
+  version "2.11.3"
+  resolved "https://registry.yarnpkg.com/@devicefarmer/adbkit/-/adbkit-2.11.3.tgz#0ad981a20aada3e4eff4871218f633c85cf7f2db"
+  integrity sha512-rsgWREAvSRQjdP9/3GoAV6Tq+o97haywgbTfCgt5yUqiDpaaq3hlH9FTo9XsdG8x+Jd0VQ9nTC2IXsDu8JGRSA==
   dependencies:
     "@devicefarmer/adbkit-logcat" "^1.1.0"
     "@devicefarmer/adbkit-monkey" "~1.0.1"
     bluebird "~2.9.24"
     commander "^2.3.0"
     debug "~2.6.3"
-    node-forge "^0.9.1"
+    node-forge "^0.10.0"
     split "~0.3.3"
 
-"@devicefarmer/minicap-prebuilt@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@devicefarmer/minicap-prebuilt/-/minicap-prebuilt-2.4.0.tgz#c001010fa7c4a352008b4370f22de0c850a203a3"
-  integrity sha512-rCtNXILYjNiXFiAhNssbDWwiYxEuTWz7vMk018+FaTmXNmSemBNP6tMg70uqXzJafNiICdqqahlKqmgRUDHG3g==
+"@devicefarmer/minicap-prebuilt@^2.5.0":
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/@devicefarmer/minicap-prebuilt/-/minicap-prebuilt-2.7.0.tgz#ec350c2eaecfdc2963eaf27ec368437e72231a02"
+  integrity sha512-1xIgypl9QAIDuOBb+LipCGDbd5YEZnqQzi9JRPT1y7B+FcjACv0YGJ3Hr8jT+imFJcAv2Y1tinmAzqaXOFwDbw==
 
 "@devicefarmer/minitouch-prebuilt@^1.3.0":
   version "1.3.0"
@@ -717,6 +717,11 @@ base64id@1.0.0:
 base64url@2.0.0, base64url@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/base64url/-/base64url-2.0.0.tgz#eac16e03ea1438eff9423d69baa36262ed1f70bb"
+
+base64url@3.x.x:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/base64url/-/base64url-3.0.1.tgz#6399d572e2bc3f90a9a8b22d5dbb0a32d33f788d"
+  integrity sha512-ir1UPr3dkwexU7FdV8qBBbNDRUhMmIekYMFZfi+C/sLNnRESKPl23nB9b2pltqfOQNnGzsDdId90AEtG5tCx4A==
 
 base@^0.11.1:
   version "0.11.2"
@@ -2095,12 +2100,19 @@ debug@3.2.6, debug@^3.1.0, debug@^3.1.1, debug@^3.2.5, debug@^3.2.6:
   dependencies:
     ms "^2.1.1"
 
-debug@^4, debug@^4.1.0, debug@~4.1.1:
+debug@^4, debug@^4.1.0:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.1.1.tgz#3b72260255109c6b589cee050f1d516139664791"
   integrity sha512-pYAIzeRo8J6KPEaJ0VWOh5Pzkbw/RetuzehGM7QRRX5he4fPHx2rdKMB256ehJCkX+XRQm16eZLqLNS8RSZXZw==
   dependencies:
     ms "^2.1.1"
+
+debug@~4.3.1:
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.2.tgz#f0a49c18ac8779e31d4a0c6029dfb76873c7428b"
+  integrity sha512-mOp8wKcvj7XxC78zLgw/ZA+6TSgkoE2C/ienthhRD298T7UNwAg9diBpLRxC0mOezLl4B0xV7M0cCO6P/O0Xhw==
+  dependencies:
+    ms "2.1.2"
 
 decamelize@^1.0.0, decamelize@^1.1.1, decamelize@^1.1.2, decamelize@^1.2.0:
   version "1.2.0"
@@ -6251,7 +6263,7 @@ ms@2.1.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.1.tgz#30a5864eb3ebb0a66f2ebe6d727af06a09d86e0a"
   integrity sha512-tgp+dl5cGk28utYktBsrFqA7HKgrhgPsg6Z/EfhWI4gl1Hwq8B/GmY/0oXZ6nF8hDVesS/FpnYaD/kOWhYQvyg==
 
-ms@^2.1.1:
+ms@2.1.2, ms@^2.1.1:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
@@ -6431,10 +6443,10 @@ node-forge@0.9.0:
   resolved "https://registry.yarnpkg.com/node-forge/-/node-forge-0.9.0.tgz#d624050edbb44874adca12bb9a52ec63cb782579"
   integrity sha512-7ASaDa3pD+lJ3WvXFsxekJQelBKRpne+GOVbLbtHYdd7pFspyeuJHnWfLplGf3SwKGbfs/aYl5V/JCIaHVUKKQ==
 
-node-forge@^0.9.1:
-  version "0.9.1"
-  resolved "https://registry.yarnpkg.com/node-forge/-/node-forge-0.9.1.tgz#775368e6846558ab6676858a4d8c6e8d16c677b5"
-  integrity sha512-G6RlQt5Sb4GMBzXvhfkeFmbqR6MzhtnT7VTHuLadjkii3rdYHNdw0m8zA4BTxVIh68FicCQ2NSUANpsqkr9jvQ==
+node-forge@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/node-forge/-/node-forge-0.10.0.tgz#32dea2afb3e9926f02ee5ce8794902691a676bf3"
+  integrity sha512-PPmu8eEeG9saEUvI97fm4OYxXVB6bFvyNTyiUOBichBpFG8A1Ljw3bY62+5oOjDEMHRnd0Y7HQ+x7uzxOzC6JA==
 
 node-gyp@^3.8.0:
   version "3.8.0"
@@ -7070,9 +7082,11 @@ pascalcase@^0.1.1:
   integrity sha1-s2PlXoAGym/iF4TS2yK9FdeRfxQ=
 
 passport-oauth2@^1.1.2:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/passport-oauth2/-/passport-oauth2-1.4.0.tgz#f62f81583cbe12609be7ce6f160b9395a27b86ad"
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/passport-oauth2/-/passport-oauth2-1.6.1.tgz#c5aee8f849ce8bd436c7f81d904a3cd1666f181b"
+  integrity sha512-ZbV43Hq9d/SBSYQ22GOiglFsjsD1YY/qdiptA+8ej+9C1dL1TVB+mBE5kDH/D4AJo50+2i8f4bx0vg4/yDDZCQ==
   dependencies:
+    base64url "3.x.x"
     oauth "0.9.x"
     passport-strategy "1.x.x"
     uid2 "0.0.x"
@@ -10117,11 +10131,11 @@ util@0.10.3, "util@>=0.10.3 <1", util@^0.10.3:
   dependencies:
     inherits "2.0.1"
 
-utils-merge@1.0.0, utils-merge@1.x.x:
+utils-merge@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.0.tgz#0294fb922bb9375153541c4f7096231f287c8af8"
 
-utils-merge@1.0.1:
+utils-merge@1.0.1, utils-merge@1.x.x:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
