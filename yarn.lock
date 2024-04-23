@@ -5699,10 +5699,12 @@ lodash.words@^3.0.0:
 lodash@3.10.1, lodash@^3.2.0, lodash@^3.5.0, lodash@^3.6.0, lodash@^3.8.0, lodash@^3.9.2:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
+  integrity sha512-9mDDwqVIma6OZX79ZlDACZl8sBm0TEnkf99zV3iMA4GzkIT/9hiqP5mY0HoT1iNLCrKc/R1HByV+yJfRWVJryQ==
 
 lodash@4.16.x:
   version "4.16.6"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.16.6.tgz#d22c9ac660288f3843e16ba7d2b5d06cca27d777"
+  integrity sha512-QXrLkYI2gXjL0QoQ9j932ca+Oh/wCUBeZULjqsJy78KjntrohXawEoOfgA2fXwy4vKh7OTD00p757/pUROtv+w==
 
 lodash@^4.0.0, lodash@^4.0.1, lodash@^4.11.1, lodash@^4.13.1, lodash@^4.14.2, lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@^4.3.0, lodash@^4.5.0, lodash@^4.6.1, lodash@~4.17.4:
   version "4.17.21"
@@ -5712,14 +5714,17 @@ lodash@^4.0.0, lodash@^4.0.1, lodash@^4.11.1, lodash@^4.13.1, lodash@^4.14.2, lo
 lodash@~1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-1.0.2.tgz#8f57560c83b59fc270bd3d561b690043430e2551"
+  integrity sha512-0VSEDVec/Me2eATuoiQd8IjyBMMX0fahob8YJ96V1go2RjvCk1m1GxmtfXn8RNSaLaTtop7fsuhhu9oLk3hUgA==
 
 lodash@~2.4.1:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-2.4.2.tgz#fadd834b9683073da179b3eae6d9c0d15053f73e"
+  integrity sha512-Kak1hi6/hYHGVPmdyiZijoQyz5x2iGVzs6w9GYB/HiXEtylY7tIoYEROMjvM1d9nXJqPOrG2MNPMn01bJ+S0Rw==
 
 lodash@~3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.2.0.tgz#4bf50a3243f9aeb0bac41a55d3d5990675a462fb"
+  integrity sha512-pg876Sz2B6iut18K5PlFGZUxagOP9LACajQ4nzQHPZ8JcU15tviPV6q/u/dEQMV64TzKu8yJM3NprFxqRb3oHA==
 
 log4js@^0.6.31:
   version "0.6.38"
