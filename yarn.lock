@@ -10265,14 +10265,12 @@ ws@^1.0.1:
     options ">=0.0.5"
     ultron "1.0.x"
 
-ws@^3.0.0:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-3.3.1.tgz#d97e34dee06a1190c61ac1e95f43cb60b78cf939"
-  integrity sha512-8A/uRMnQy8KCQsmep1m7Bk+z/+LIkeF7w+TDMLtX1iZm5Hq9HsUDmgFGaW1ACW5Cj0b2Qo7wCvRhYN2ErUVp/A==
+ws@^5.2.4:
+  version "5.2.4"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-5.2.4.tgz#c7bea9f1cfb5f410de50e70e82662e562113f9a7"
+  integrity sha512-fFCejsuC8f9kOSu9FYaOw8CdO68O3h5v0lg4p74o8JqWpwTf9tniOD+nOB78aWoVSS6WptVUmDrp/KPsMVBWFQ==
   dependencies:
     async-limiter "~1.0.0"
-    safe-buffer "~5.1.0"
-    ultron "~1.1.0"
 
 ws@~2.3.1:
   version "2.3.1"
